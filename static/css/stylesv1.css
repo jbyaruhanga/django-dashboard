@@ -1,0 +1,28 @@
+/* Make graphs take full width */
+.graph-container {
+    width: 100%;   /* Ensure each graph takes 100% width */
+    max-width: 100%;
+}
+
+.graph-container iframe,
+.graph-container canvas,
+.graph-container img {
+    width: 100%;   /* Make sure iframe (or other embedded graph elements) take full width */
+    height: auto;  /* Ensure aspect ratio is maintained */
+}
+
+/* For Bootstrap's column sizing */
+.row {
+    margin-bottom: 20px;
+}
+
+/* Optional: Add margins or padding between graphs */
+.graph-container {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .graph-container {
+        margin-bottom: 20px; /* Reduce margin on smaller screens */
+    }
+}

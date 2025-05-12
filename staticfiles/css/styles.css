@@ -1,0 +1,70 @@
+/* Make graphs take full width */
+.chart-container {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Adjust container padding */
+.container-fluid {
+    padding: 20px 50px;
+}
+
+/* Improve heading spacing */
+h3 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Improve navbar */
+.navbar {
+    background-color: #004085;
+    color: white;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+}
+
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+}
+
+th {
+    background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+/* styles.css */
+
+.chart-container-grey {
+    background-color: #f0f0f0;  /* Light grey background */
+    padding: 15px;  /* Optional: adds some space inside the container */
+    border-radius: 8px;  /* Optional: adds rounded corners */
+    /* background-color: #808080; */
+    
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Add any other global styles or overrides here */
+
