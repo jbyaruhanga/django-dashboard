@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-qkg81h!1_@*h*p5%zz!p%@2(l9711r&ygjn=!t!0iuu&*$teiq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-dashboard-hua7.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'TMS.urls'
