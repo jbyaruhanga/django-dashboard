@@ -34,7 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # Include Dash app's URL patterns (from django_plotly_dash)
-    path('tms/', include('Dash.urls')), 
+    path('', include('Dash.urls')), 
    
 ]
 
