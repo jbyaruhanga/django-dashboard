@@ -1,16 +1,29 @@
+
 import plotly.express as px
 import pandas as pd
 import os
 from django.shortcuts import render
 from django.conf import settings
 from datetime import datetime
+import random
+
 
 
 Transactions = os.path.join(settings.BASE_DIR, 'data', "bank_transactions.csv")
 
 def dashboard(request):
+    with open(Transactions, "r") as f:
+        total_lines = sum(1 for _ in f)
+
+    # Calculate lines to skip (99% of total)
+    n = total_lines - 1
+    skip_count = int(n * 0.99)
+    skip = sorted(random.sample(range(1, n + 1), skip_count))
+    # Read just 1% of rows randomly
+    df = pd.read_csv(Transactions, skiprows=skip)
     
-    df = pd.read_csv(Transactions)
+    
+   
 
     
     df.rename(columns={
@@ -67,7 +80,9 @@ def dashboard(request):
     # Daily Transactions
     day_map = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday',
               3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday'}
-    filtered_df['DayOfWeek'] = filtered_df['TransactionDayOfWeek'].map(day_map)
+    # filtered_df['DayOfWeek'] = filtered_df['TransactionDayOfWeek'].map(day_map)
+    filtered_df.loc[:, 'DayOfWeek'] = filtered_df['TransactionDayOfWeek'].map(day_map)
+
     day_counts = filtered_df['DayOfWeek'].value_counts().loc[list(day_map.values())].reset_index()
     day_counts.columns = ['DayOfWeek', 'TotalTransactions']
     fig_day = px.bar(day_counts, x='DayOfWeek', y='TotalTransactions',
